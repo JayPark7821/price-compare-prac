@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.pricecompareredis.service.LowestPriceService;
 import com.example.pricecompareredis.vo.Product;
+import com.example.pricecompareredis.vo.ProductGroup;
 
 @RestController
 @RequestMapping("/")
@@ -29,5 +30,10 @@ public class LowestPriceController {
 	@PutMapping("/product")
 	int SetNewProduct(@RequestBody final Product product) {
 		return lowestPriceService.setNewProduct(product);
+	}
+
+	@PutMapping("/productGroup")
+	int SetNewProductGrp(@RequestBody final ProductGroup productGroup) {
+		return lowestPriceService.setNewProductGrp(productGroup);
 	}
 }
