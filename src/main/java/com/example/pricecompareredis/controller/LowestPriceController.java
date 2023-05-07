@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.pricecompareredis.service.LowestPriceService;
+import com.example.pricecompareredis.vo.Keyword;
 import com.example.pricecompareredis.vo.Product;
 import com.example.pricecompareredis.vo.ProductGroup;
 
@@ -41,4 +42,10 @@ public class LowestPriceController {
 	int setNewProductGrpToKeyword(String keyword, String prodGrpId, double score){
 		return lowestPriceService.setNewProductGrpToKeyword(keyword, prodGrpId, score);
 	}
+
+	@GetMapping("/productPrice")
+	Keyword getLowestPriceProductKeyword(String keyword) {
+		return lowestPriceService.getLowestPriceProductKeyword(keyword);
+	}
+
 }

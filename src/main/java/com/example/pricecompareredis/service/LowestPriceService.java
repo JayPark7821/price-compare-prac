@@ -2,6 +2,7 @@ package com.example.pricecompareredis.service;
 
 import java.util.Set;
 
+import com.example.pricecompareredis.vo.Keyword;
 import com.example.pricecompareredis.vo.Product;
 import com.example.pricecompareredis.vo.ProductGroup;
 
@@ -13,4 +14,6 @@ public interface LowestPriceService {
 	int setNewProductGrp(ProductGroup productGroup);
 
 	int setNewProductGrpToKeyword(String keyword, String prodGrpId, double score);
+
+	Keyword getLowestPriceProductKeyword(String keyword);
 }
