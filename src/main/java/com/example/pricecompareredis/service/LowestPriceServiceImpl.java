@@ -40,4 +40,10 @@ public class LowestPriceServiceImpl implements LowestPriceService {
 		);
 		return redisTemplate.opsForZSet().zCard(productGroup.getProductGroupId()).intValue();
 	}
+
+	@Override
+	public int setNewProductGrpToKeyword(String keyword, String prodGrpId, double score) {
+		redisTemplate.opsForSet().add(keyword, prodGrpId, score);
+		return redisTemplate.opsForZSet().rank(keyword, prodGrpId).intValue();
+	}
 }
